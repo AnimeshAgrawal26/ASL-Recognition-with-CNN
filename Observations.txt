@@ -1,0 +1,31 @@
+Q. Write your observations on Overfitting issues in this project.
+
+Ans. Sign language letters often have small variations in hand posture and orientation. An overfitting model might become overly focused on these minor variations within the training data. This could cause the model to misclassify new sign language gestures that have slightly different hand placements compared to the training examples.
+
+
+
+Q. How does the CNN handle this issue?
+
+Ans. 1. A dropout layer with a rate of 0.2 is included after the fully connected layer. This forces the network to not rely on any single neuron and encourages it to learn more robust features.
+     2. The architecture keeps the network complexity relatively low which prevents the model from having too many parameters that could potentially overfit.
+
+
+
+Q. Will the Overfitting further reduce if you use another dropout layer (say with rate 0.3) after the
+   Convolution layers?
+
+Ans. It might, but there's a trade-off. Placing it after the convolutional layers would allow the network to learn more robust features and reducing reliance on any single neuron. On the other hand it might start discarding too much information during training. This can lead to the model underfitting the data.
+
+
+
+Q. How has your project handled Share structure property and Invariance property?
+
+Ans. The CNN utilizes these features in the following way: 
+
+     (a) Share Structure Property
+	 The convolutional layers use shared weights across the entire input image. This promotes parameter efficiency and helps the model identify relevant features regardless of their location in the image.
+     (b) Invariance Property
+	 By using convolutional layers with ReLU activation and max pooling, the model can learn features that are somewhat invariant to small changes in the image.
+
+
+
